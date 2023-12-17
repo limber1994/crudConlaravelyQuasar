@@ -1,11 +1,27 @@
 const routes = [
   {
     path: "/",
+    component: () => import("layouts/AuthLayout.vue"),
+    children: [
+      { path: "/", redirect: "/login" },
+      {
+        path: "login",
+        component: () => import("pages/LoginPage.vue"),
+      },
+      {
+        path: "register",
+        component: () => import("pages/RegisterPage.vue"),
+      },
+    ],
+    meta: { auth: false },
+  },
+  {
+    path: "/app",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {
-        path: "",
-        component: () => import("pages/LoginPage.vue"),
+        path: "/app",
+        component: () => import("pages/ListaAlumnos.vue"),
         // Esta es tu página de inicio de sesión, manténla aquí
       },
       {
@@ -27,13 +43,12 @@ const routes = [
         name: "editarAlumno",
         component: () => import("components/editarAlumno.vue"),
       },
-      // Otras rutas si son necesarias para tu aplicación
     ],
+    meta: { auth: true },
   },
   {
     path: "/:catchAll(.*)*",
     component: () => import("pages/ErrorNotFound.vue"),
   },
 ];
-
 export default routes;

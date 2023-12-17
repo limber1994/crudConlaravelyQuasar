@@ -1,8 +1,8 @@
-<!-- src/pages/LoginPage.vue -->
+<!-- src/pages/RegisterPage.vue -->
 
 <template>
-  <!-- Design template by Joabson Arley
-   https://github.com/Joabsonlg/quasar-template-->
+  <!-- Template by Joabson Arley
+     https://github.com/Joabsonlg/quasar-template -->
 
   <q-card class="q-ma-xl">
     <div class="row">
@@ -18,7 +18,7 @@
               Welcome!
             </div>
             <div class="text-white q-my-sm text-subtitle1">
-              Please sign in to your account to get started!
+              Enter your details to get started!
             </div>
           </div>
         </div>
@@ -44,14 +44,23 @@
                   <div
                     class="text-h4 text-uppercase q-my-none text-weight-bold text-primary fredoka"
                   >
-                    Login
+                    Registration Form
                   </div>
                 </div>
               </div>
 
               <q-form ref="form" class="q-gutter-md" @submit="submit">
+                <q-input
+                  v-model="user.first_name"
+                  label="First Name"
+                  name="First Name"
+                />
+                <q-input
+                  v-model="user.last_name"
+                  label="Last Name"
+                  name="Last Name"
+                />
                 <q-input v-model="user.email" label="Email" name="Email" />
-
                 <q-input
                   v-model="user.password"
                   label="Password"
@@ -63,16 +72,16 @@
                   <q-btn
                     class="full-width fredoka"
                     color="primary"
-                    label="Login"
+                    label="Register"
                     rounded
                     type="submit"
                   ></q-btn>
 
                   <div class="q-mt-lg">
                     <div class="q-mt-sm">
-                      Don't have an account yet?
-                      <router-link class="text-primary" to="/register"
-                        >Register</router-link
+                      Already have an account?
+                      <router-link class="text-primary" to="/login"
+                        >Login</router-link
                       >
                     </div>
                   </div>
@@ -88,9 +97,11 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import login from "src/firebase/firebase-login";
-
+import register from "src/firebase/firebase-register";
+import { useRouter } from "vue-router";
 const user = reactive({
+  last_name: null,
+  first_name: null,
   email: null,
   password: null,
 });
@@ -98,11 +109,9 @@ const user = reactive({
 const form = ref(null);
 
 const submit = async () => {
-  if (form.value.validate()) {
-    try {
-      await login(user);
-      router.push("/app");
-    } catch (err) {}
+  if (form.value.validate() && !!(await register(user))) {
+    const router = useRouter();
+    router.push("/app");
   }
 };
 </script>
