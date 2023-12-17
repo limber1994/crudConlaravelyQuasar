@@ -4,29 +4,29 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {
-        path: "/",
-        component: () => import("pages/ListaAlumnos.vue"),
-      }, // Ruta para mostrar la lista de alumnos
-      {
-        path: "/login",
+        path: "",
         component: () => import("pages/LoginPage.vue"),
+        // Esta es tu página de inicio de sesión, manténla aquí
       },
-      // Nueva ruta que apunta a la API de Laravel
       {
-        path: "/api/alumnos", // Ruta de tu API de Laravel
-        component: () => import("pages/AlumnosAPI.vue"), // Componente para acceder a la API de Laravel
+        path: "/lista-alumnos", // Cambia la ruta de ListaAlumnos.vue
+        component: () => import("pages/ListaAlumnos.vue"),
+        // Cambia el path para evitar conflictos con la ruta de LoginPage.vue
+      },
+      {
+        path: "/api/alumnos",
+        component: () => import("pages/AlumnosAPI.vue"),
       },
       {
         path: "/agregar-alumno",
         name: "AgregarAlumno",
-        component: () => import("components/FormularioAgregarAlumno.vue"), // Reemplaza con la ruta de tu formulario
+        component: () => import("components/FormularioAgregarAlumno.vue"),
       },
       {
         path: "/editar-alumno/:id",
         name: "editarAlumno",
-        component: () => import("components/editarAlumno.vue"), // Asegúrate de tener un componente para la edición
+        component: () => import("components/editarAlumno.vue"),
       },
-
       // Otras rutas si son necesarias para tu aplicación
     ],
   },
