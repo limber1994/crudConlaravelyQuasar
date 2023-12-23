@@ -1,34 +1,48 @@
 <template>
   <div>
-    <h1>Lista de Alumnos</h1>
-    <button @click="agregarAlumno">Agregar</button>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>email</th>
-          <th>edad</th>
-          <th>acciones</th>
-          <!-- Agrega aquí más columnas si tienes más propiedades de alumno -->
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="alumno in alumnos" :key="alumno.id">
-          <td>{{ alumno.id }}</td>
-          <td>{{ alumno.nombre }}</td>
-          <td>{{ alumno.correo }}</td>
-          <td>{{ alumno.edad }}</td>
-          <td>
-            <button @click="editarAlumno(alumno.id)">Editar</button>
-            <button @click="confirmarEliminarAlumno(alumno.id)">
-              Eliminar
-            </button>
-          </td>
-          <!-- Agrega aquí más celdas si tienes más propiedades de alumno -->
-        </tr>
-      </tbody>
-    </table>
+    <div class="q-pa-md q-gutter-sm text-center">
+      <q-btn
+        @click="agregarAlumno"
+        class="custom-add-button"
+        icon="add"
+        label="Agregar Alumno"
+      />
+    </div>
+    <div class="q-pa-md">
+      <q-table
+        class="my-sticky-virtscroll-table"
+        virtual-scroll
+        flat
+        bordered
+        v-model:pagination="pagination"
+        :rows-per-page-options="[0]"
+        :virtual-scroll-sticky-size-start="48"
+        row-key="id"
+        :rows="alumnos"
+        :columns="columns"
+        dark
+        color="amber"
+      >
+        <template v-slot:body-cell-acciones="props">
+          <div class="q-pa-md q-gutter-sm text-center">
+            <q-btn
+              @click="editarAlumno(props.row.id)"
+              square
+              color="amber"
+              icon="edit"
+              class="q-ml-sm q-mr-sm"
+            />
+            <q-btn
+              @click="confirmarEliminarAlumno(props.row.id)"
+              square
+              color="negative"
+              icon="delete"
+              class="q-ml-sm q-mr-sm"
+            />
+          </div>
+        </template>
+      </q-table>
+    </div>
   </div>
 </template>
 
@@ -36,8 +50,55 @@
 export default {
   data() {
     return {
-      alumnos: [], // Aquí se almacenarán los alumnos obtenidos de la API
+      alumnos: [],
+      columns: [
+        {
+          name: "id",
+          required: true,
+          label: "ID",
+          align: "left",
+          field: "id",
+          sortable: true,
+        },
+        {
+          name: "nombre",
+          required: true,
+          label: "Nombre",
+          align: "left",
+          field: "nombre",
+          sortable: true,
+        },
+        {
+          name: "correo",
+          required: true,
+          label: "Correo",
+          align: "left",
+          field: "correo",
+          sortable: true,
+        },
+        {
+          name: "edad",
+          required: true,
+          label: "Edad",
+          align: "left",
+          field: "edad",
+          sortable: true,
+        },
+        {
+          name: "acciones",
+          label: "Acciones",
+          align: "center",
+          field: "acciones",
+          sortable: false,
+        },
+      ],
+      pagination: {
+        rowsPerPage: 0,
+      },
     };
+  },
+  mounted() {
+    this.obtenerAlumnos();
   },
   mounted() {
     this.obtenerAlumnos(); // Llama a la función para obtener los alumnos al cargar la página
@@ -97,8 +158,15 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* Estilos específicos para la tabla de alumnos */
-/* ... */
+<style lang="scss">
+.my-sticky-virtscroll-table {
+  height: 410px; /* Ajusta la altura según tus necesidades */
+}
+.custom-add-button {
+  background-color: #312d2d;
+  color: white; /* Cambia el color del texto si es necesario */
+}
+.text-center {
+  text-align: center;
+}
 </style>

@@ -58,6 +58,7 @@ class AlumnoController extends Controller
             // Actualiza los datos del alumno con los nuevos datos proporcionados
             $alumno->nombre = $request->input('nombre'); // Reemplaza 'nombre' con los campos que quieras actualizar
             $alumno->correo = $request->input('correo');
+            $alumno->edad = $request->input('edad');
             // Actualiza más campos según sea necesario
 
             $alumno->save();
