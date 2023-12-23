@@ -15,10 +15,10 @@
               class="text-h4 text-uppercase text-white fredoka"
               style="min-width: 220px"
             >
-              Welcome!
+              Bienvenido!
             </div>
             <div class="text-white q-my-sm text-subtitle1">
-              Please sign in to your account to get started!
+              ¡Inicie sesión en su cuenta para comenzar!
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
               style="text-decoration: none"
               to="/"
             >
-              System Name
+              Shark
             </router-link>
           </div>
         </div>
@@ -44,17 +44,17 @@
                   <div
                     class="text-h4 text-uppercase q-my-none text-weight-bold text-primary fredoka"
                   >
-                    Login
+                    Iniciar sesión
                   </div>
                 </div>
               </div>
 
               <q-form ref="form" class="q-gutter-md" @submit="submit">
-                <q-input v-model="user.email" label="Email" name="Email" />
+                <q-input v-model="user.email" label="Correo" name="Email" />
 
                 <q-input
                   v-model="user.password"
-                  label="Password"
+                  label="Contraseña"
                   name="password"
                   type="password"
                 />
@@ -70,9 +70,9 @@
 
                   <div class="q-mt-lg">
                     <div class="q-mt-sm">
-                      Don't have an account yet?
+                      ¿Aún no tienes una cuenta?
                       <router-link class="text-primary" to="/register"
-                        >Register</router-link
+                        >Registrarse</router-link
                       >
                     </div>
                   </div>
