@@ -15,10 +15,10 @@
               class="text-h4 text-uppercase text-white fredoka"
               style="min-width: 220px"
             >
-              Welcome!
+              ¡Bienvenido!
             </div>
             <div class="text-white q-my-sm text-subtitle1">
-              Enter your details to get started!
+              ¡Ingresa tus datos para comenzar!
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
               style="text-decoration: none"
               to="/"
             >
-              System Name
+              Shark
             </router-link>
           </div>
         </div>
@@ -44,7 +44,7 @@
                   <div
                     class="text-h4 text-uppercase q-my-none text-weight-bold text-primary fredoka"
                   >
-                    Registration Form
+                    Registrarse
                   </div>
                 </div>
               </div>
@@ -52,18 +52,18 @@
               <q-form ref="form" class="q-gutter-md" @submit="submit">
                 <q-input
                   v-model="user.first_name"
-                  label="First Name"
+                  label="Nombre"
                   name="First Name"
                 />
                 <q-input
                   v-model="user.last_name"
-                  label="Last Name"
+                  label="Apellido"
                   name="Last Name"
                 />
-                <q-input v-model="user.email" label="Email" name="Email" />
+                <q-input v-model="user.email" label="Correo" name="Email" />
                 <q-input
                   v-model="user.password"
-                  label="Password"
+                  label="Contraseña"
                   name="password"
                   type="password"
                 />
@@ -72,14 +72,14 @@
                   <q-btn
                     class="full-width fredoka"
                     color="primary"
-                    label="Register"
+                    label="Registrarse"
                     rounded
                     type="submit"
                   ></q-btn>
 
                   <div class="q-mt-lg">
                     <div class="q-mt-sm">
-                      Already have an account?
+                      ¿Ya tienes una cuenta?
                       <router-link class="text-primary" to="/login"
                         >Login</router-link
                       >
