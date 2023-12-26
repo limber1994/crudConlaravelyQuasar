@@ -29,10 +29,7 @@ const routes = [
         component: () => import("pages/ListaAlumnos.vue"),
         // Cambia el path para evitar conflictos con la ruta de LoginPage.vue
       },
-      {
-        path: "/api/alumnos",
-        component: () => import("pages/AlumnosAPI.vue"),
-      },
+
       {
         path: "/agregar-alumno",
         name: "AgregarAlumno",
