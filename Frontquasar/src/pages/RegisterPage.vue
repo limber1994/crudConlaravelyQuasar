@@ -81,7 +81,7 @@
                     <div class="q-mt-sm">
                       ¿Ya tienes una cuenta?
                       <router-link class="text-primary" to="/login"
-                        >Login</router-link
+                        >Iniciar Sesion</router-link
                       >
                     </div>
                   </div>

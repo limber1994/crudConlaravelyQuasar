@@ -6,7 +6,7 @@
 
   <q-card class="q-ma-xl">
     <div class="row">
-      <div class="col-0 col-sm-5 bg-primary rounded-left-borders xs-hide">
+      <div class="col-0 col-sm-5 bg-dark rounded-left-borders xs-hide">
         <div
           class="row full-width q-px-xl q-pb-xl full-height flex flex-center"
         >
@@ -27,11 +27,7 @@
       <div class="col-12 col-sm-7">
         <div class="row q-ml-sm q-mt-sm sm-and-up-hide">
           <div class="col-12 fredoka text-subtitle1">
-            <router-link
-              class="text-primary"
-              style="text-decoration: none"
-              to="/"
-            >
+            <router-link class="text-dark" style="text-decoration: none" to="/">
               Shark
             </router-link>
           </div>
@@ -42,7 +38,7 @@
               <div class="q-mb-xl">
                 <div class="flex justify-center">
                   <div
-                    class="text-h4 text-uppercase q-my-none text-weight-bold text-primary fredoka"
+                    class="text-h4 text-uppercase q-my-none text-weight-bold text-dark fredoka"
                   >
                     Iniciar sesión
                   </div>
@@ -62,7 +58,7 @@
                 <div>
                   <q-btn
                     class="full-width fredoka"
-                    color="primary"
+                    color="dark"
                     label="Login"
                     rounded
                     type="submit"
@@ -89,6 +85,9 @@
 <script setup>
 import { ref, reactive } from "vue";
 import login from "src/firebase/firebase-login";
+import { useRouter } from "vue-router";
+
+const $router = useRouter();
 
 const user = reactive({
   email: null,
@@ -100,9 +99,13 @@ const form = ref(null);
 const submit = async () => {
   if (form.value.validate()) {
     try {
-      await login(user);
-      router.push("/app");
-    } catch (err) {}
+      await login(user); // Lógica de inicio de sesión aquí
+      console.log("Inicio de sesión exitoso"); // Verificación en consola
+      // Redirección después del inicio de sesión exitoso
+      $router.push("/app"); // Asegúrate de que $router esté disponible en el contexto
+    } catch (err) {
+      console.error("Error en el inicio de sesión:", err); // Manejo de errores
+    }
   }
 };
 </script>
