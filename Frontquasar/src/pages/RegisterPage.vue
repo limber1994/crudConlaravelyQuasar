@@ -6,7 +6,7 @@
 
   <q-card class="q-ma-xl">
     <div class="row">
-      <div class="col-0 col-sm-5 bg-primary rounded-left-borders xs-hide">
+      <div class="col-0 col-sm-5 bg-dark rounded-left-borders xs-hide">
         <div
           class="row full-width q-px-xl q-pb-xl full-height flex flex-center"
         >
@@ -27,11 +27,7 @@
       <div class="col-12 col-sm-7">
         <div class="row q-ml-sm q-mt-sm sm-and-up-hide">
           <div class="col-12 fredoka text-subtitle1">
-            <router-link
-              class="text-primary"
-              style="text-decoration: none"
-              to="/"
-            >
+            <router-link class="text-dark" style="text-decoration: none" to="/">
               Shark
             </router-link>
           </div>
@@ -42,7 +38,7 @@
               <div class="q-mb-xl">
                 <div class="flex justify-center">
                   <div
-                    class="text-h4 text-uppercase q-my-none text-weight-bold text-primary fredoka"
+                    class="text-h4 text-uppercase q-my-none text-weight-bold text-dark fredoka"
                   >
                     Registrarse
                   </div>
@@ -52,17 +48,25 @@
               <q-form ref="form" class="q-gutter-md" @submit="submit">
                 <q-input
                   v-model="user.first_name"
+                  color="dark"
                   label="Nombre"
                   name="First Name"
                 />
                 <q-input
                   v-model="user.last_name"
+                  color="dark"
                   label="Apellido"
                   name="Last Name"
                 />
-                <q-input v-model="user.email" label="Correo" name="Email" />
+                <q-input
+                  v-model="user.email"
+                  color="dark"
+                  label="Correo"
+                  name="Email"
+                />
                 <q-input
                   v-model="user.password"
+                  color="dark"
                   label="Contraseña"
                   name="password"
                   type="password"
@@ -71,7 +75,7 @@
                 <div>
                   <q-btn
                     class="full-width fredoka"
-                    color="primary"
+                    color="dark"
                     label="Registrarse"
                     rounded
                     type="submit"

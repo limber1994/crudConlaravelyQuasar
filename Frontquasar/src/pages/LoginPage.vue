@@ -46,10 +46,16 @@
               </div>
 
               <q-form ref="form" class="q-gutter-md" @submit="submit">
-                <q-input v-model="user.email" label="Correo" name="Email" />
+                <q-input
+                  v-model="user.email"
+                  color="dark"
+                  label="Correo"
+                  name="Email"
+                />
 
                 <q-input
                   v-model="user.password"
+                  color="dark"
                   label="Contraseña"
                   name="password"
                   type="password"
