@@ -98,16 +98,12 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-<<<<<<< HEAD
+
 import { login, loginWithFacebook } from "src/firebase/firebase-login";
-import { useRouter } from "vue-router";
-=======
-import login from "src/firebase/firebase-login";
 import { useRouter } from "vue-router";
 
 const $router = useRouter();
 
->>>>>>> 212ed32300d2dd4688d753a0226b83bc3909a86d
 const user = reactive({
   email: null,
   password: null,
