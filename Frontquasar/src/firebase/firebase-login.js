@@ -1,9 +1,19 @@
 // src/firebase/firebase-login.js
 
 import { auth } from "./index.js";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { Loading, Notify } from "quasar";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  FacebookAuthProvider,
+} from "firebase/auth";
+const loginWithFacebook = () => {
+  const provider = new FacebookAuthProvider();
 
+  return signInWithPopup(auth, provider).then(
+    (userCredential) => userCredential.user
+  );
+};
 const login = (data) => {
   return new Promise((resolve, reject) => {
     Loading.show();
@@ -23,5 +33,4 @@ const login = (data) => {
       });
   });
 };
-
-export default login;
+export { login, loginWithFacebook };

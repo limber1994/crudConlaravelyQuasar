@@ -76,6 +76,14 @@
                       >
                     </div>
                   </div>
+                  <q-btn
+                    class="full-width fredoka"
+                    color="primary"
+                    label="Login with Facebook"
+                    rounded
+                    @click="loginWithFacebook"
+                  >
+                  </q-btn>
                 </div>
               </q-form>
             </q-card-section>
@@ -88,21 +96,29 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import login from "src/firebase/firebase-login";
-
+import { login, loginWithFacebook } from "src/firebase/firebase-login";
+import { useRouter } from "vue-router";
 const user = reactive({
   email: null,
   password: null,
 });
 
 const form = ref(null);
-
+const router = useRouter();
 const submit = async () => {
   if (form.value.validate()) {
     try {
       await login(user);
       router.push("/app");
     } catch (err) {}
+  }
+};
+const handleFacebookLogin = async () => {
+  try {
+    await loginWithFacebook();
+    router.push("/app");
+  } catch (err) {
+    // Manejar el error, si es necesario
   }
 };
 </script>

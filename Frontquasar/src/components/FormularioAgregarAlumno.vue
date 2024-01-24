@@ -7,6 +7,9 @@
             <h6 class="text-center bg-dark border border-success text-white">
               Agregar Alumno
             </h6>
+            <h6 class="text-center bg-dark border border-success text-white">
+              Institutos
+            </h6>
             <q-form
               @submit.prevent="agregarNuevoAlumno"
               @reset="resetForm"
