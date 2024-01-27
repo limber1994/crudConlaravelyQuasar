@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UsuarioController extends Controller
 {
@@ -15,6 +16,17 @@ class UsuarioController extends Controller
             return response()->json($usuarios);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error al obtener la lista de usuarios'], 500);
+        }
+    }
+
+    public function pdf(){
+        try {
+            $usuarios = Usuario::all();
+            $pdf = Pdf::loadView('usuarios.pdf', compact('usuarios'));
+            return $pdf->stream();
+        } catch (\Exception $e) {
+            Log::error('Error al generar el PDF: ' . $e->getMessage());
+            return response()->json(['error' => 'Error al generar el PDF'], 500);
         }
     }
 
@@ -57,9 +69,10 @@ class UsuarioController extends Controller
             
             // Actualiza los datos del usuario con los nuevos datos proporcionados
             $usuario->nombre = $request->input('nombre'); // Reemplaza 'nombre' con los campos que quieras actualizar
-            $usuario->correo = $request->input('apellido');
-            $usuario->edad = $request->input('telefono');
-            $usuario->edad = $request->input('email');
+            $usuario->apellido = $request->input('apellido');
+            $usuario->telefono = $request->input('telefono');
+            $usuario->email = $request->input('email');
+            $usuario->contrasenia = $request->input('contrasenia');
             // Actualiza más campos según sea necesario
 
             $usuario->save();

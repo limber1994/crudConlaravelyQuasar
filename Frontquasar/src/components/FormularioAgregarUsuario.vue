@@ -5,18 +5,29 @@
         <q-card-section class="col-7">
           <div class="q-pa-md">
             <h6 class="text-center bg-dark border border-success text-white">
-              Agregar Alumno
+              Agregar Usuario
             </h6>
             <q-form
-              @submit.prevent="agregarNuevoAlumno"
+              @submit.prevent="agregarNuevoUsuario"
               @reset="resetForm"
               class="q-gutter-md"
             >
               <q-input
                 filled
-                v-model="nuevoAlumno.nombre"
+                v-model="nuevoUsuario.nombre"
                 label="Nombre *"
-                hint="Nombre y apellido"
+                hint="Nombre"
+                lazy-rules
+                :rules="[
+                  (val) => (val && val.length > 0) || 'Por favor, ingresa algo',
+                ]"
+              />
+
+              <q-input
+                filled
+                v-model="nuevoUsuario.apellido"
+                label="Apellido *"
+                hint="Apellido"
                 lazy-rules
                 :rules="[
                   (val) => (val && val.length > 0) || 'Por favor, ingresa algo',
@@ -26,22 +37,14 @@
               <q-input
                 filled
                 type="number"
-                v-model="nuevoAlumno.edad"
-                label="Edad *"
+                v-model="nuevoUsuario.telefono"
+                label="Telefono *"
                 lazy-rules
-                :rules="[
-                  (val) =>
-                    (val !== null && val !== '') ||
-                    'Por favor, ingresa tu edad',
-                  (val) =>
-                    (val > 0 && val < 100) ||
-                    'Por favor, ingresa una edad real',
-                ]"
               />
 
               <q-input
                 filled
-                v-model="nuevoAlumno.correo"
+                v-model="nuevoUsuario.email"
                 label="Correo electrónico *"
                 hint="example@example.com"
                 lazy-rules
@@ -49,6 +52,25 @@
                   (val) =>
                     /.+@.+\..+/.test(val) ||
                     'Por favor, ingresa un correo válido',
+                ]"
+              />
+
+              <q-input
+                filled
+                type="password"
+                v-model="nuevoUsuario.contrasenia"
+                label="Contraseña *"
+                lazy-rules
+                :rules="[
+                  (val) =>
+                    (val && val.length >= 8) ||
+                    'La contraseña debe tener al menos 8 caracteres',
+                  (val) =>
+                    /[A-Z]/.test(val) ||
+                    'La contraseña debe contener al menos una letra mayúscula',
+                  (val) =>
+                    /\d/.test(val) ||
+                    'La contraseña debe contener al menos un número',
                 ]"
               />
 
@@ -82,45 +104,49 @@
 export default {
   data() {
     return {
-      nuevoAlumno: {
+      nuevoUsuario: {
         nombre: null,
-        edad: null,
-        correo: null,
+        apellido: null,
+        telefono: null,
+        email: null,
+        contrasenia: null,
       },
     };
   },
   methods: {
-    async agregarNuevoAlumno() {
+    async agregarNuevoUsuario() {
       // Lógica para enviar datos al backend (adaptar según tu backend en Laravel)
-      console.log("Datos a enviar:", this.nuevoAlumno);
+      console.log("Datos a enviar:", this.nuevoUsuario);
       try {
-        const response = await fetch("http://127.0.0.1:8000/alumnos/nuevo", {
+        const response = await fetch("http://127.0.0.1:8000/usuarios/nuevo", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(this.nuevoAlumno),
+          body: JSON.stringify(this.nuevoUsuario),
         });
 
         if (response.ok) {
-          console.log("Alumno agregado exitosamente");
-          this.$router.push("/");
+          console.log("Usuario agregado exitosamente");
+          this.$router.push("/usuarios");
         } else {
           const errorData = await response.json();
-          throw new Error(errorData.message || "Error al agregar el alumno");
+          throw new Error(errorData.message || "Error al agregar el usuario");
         }
       } catch (error) {
-        console.error("Error al agregar el alumno:", error.message);
+        console.error("Error al agregar el usuario:", error.message);
       }
     },
     cancelarAgregar() {
-      this.$router.push("/");
+      this.$router.push("/usuarios");
     },
     resetForm() {
-      this.nuevoAlumno = {
+      this.nuevoUsuario = {
         nombre: null,
-        edad: null,
-        correo: null,
+        apellido: null,
+        telefono: null,
+        email: null,
+        contrasenia: null,
       };
     },
   },
