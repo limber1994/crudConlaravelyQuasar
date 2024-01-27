@@ -96,7 +96,7 @@
         </div>
         <h1>Reporte de Usuarios</h1>
         <div>
-            <img id="epis" src="https://scontent.faqp1-1.fna.fbcdn.net/v/t39.30808-6/299167170_486171713525657_1727205234376073952_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEPeV3VHjs76cxylNYBOiZmozXzfnfh7kKjNfN-d-HuQk4t6NGHayCQjykPQBG7aUEENv3xcnWXIedw2y_Y6KsG&_nc_ohc=hK1YR4FzVEQAX9GCWQ3&_nc_ht=scontent.faqp1-1.fna&oh=00_AfC0aPsM2zG1lVZhVd3w14UgEPqTpV0ic93iR8O7qPMZig&oe=65B91724">
+            <img id="epis" src="https://drive.usercontent.google.com/download?id=1GBKiLyVetFCeJ7i_5ymhN3Xjwgzq2y9t">
         </div>
     </header>
 
