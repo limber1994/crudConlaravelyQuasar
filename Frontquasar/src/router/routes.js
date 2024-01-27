@@ -49,32 +49,38 @@ const routes = [
     meta: { auth: true },
   },
   {
-    path: "/app2",
+    path: "/usuarios",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {
-        path: "/app2",
-        component: () => import("pages/ListaTests.vue"),
+        path: "/usuarios",
+        component: () => import("pages/ListaUsuarios.vue"),
         // Esta es tu página de inicio de sesión, manténla aquí
       },
       {
-        path: "/lista-tests", // Cambia la ruta de ListaTests.vue
-        component: () => import("pages/ListaTests.vue"),
+        path: "/lista-usuarios", // Cambia la ruta de ListaUsuarios.vue
+        component: () => import("pages/ListaUsuarios.vue"),
         // Cambia el path para evitar conflictos con la ruta de LoginPage.vue
       },
       {
-        path: "/api/tests",
-        component: () => import("pages/TestsAPI.vue"),
+        path: "/api/usuarios",
+        component: () => import("pages/UsuariosAPI.vue"),
       },
       {
-        path: "/agregar-test",
-        name: "AgregarTest",
-        component: () => import("components/FormularioAgregarTest.vue"),
+        path: "/agregar-usuario",
+        name: "AgregarUsuario",
+        component: () => import("components/FormularioAgregarUsuario.vue"),
       },
       {
-        path: "/editar-test/:id",
-        name: "editarTest",
-        component: () => import("components/editarTest.vue"),
+        path: "/reporteador-usuario",
+        name: "ReporteadorUsuario",
+        component: () => import("components/ReporteadorUsuario.vue"),
+        meta: { auth: true },
+      },
+      {
+        path: "/editar-usuario/:id",
+        name: "editarUsuario",
+        component: () => import("components/editarUsuario.vue"),
       },
       {
         path: "/agregar-universidad",
@@ -91,6 +97,26 @@ const routes = [
   {
     path: "/tests",
     component: () => import("pages/TestsPage.vue"),
+    meta: { auth: true },
+  },
+  {
+    path: "/usuarios",
+    component: () => import("pages/UsuariosPage.vue"),
+    meta: { auth: true },
+  },
+  {
+    path: "/etiquetas",
+    component: () => import("pages/EtiquetasPage.vue"),
+    meta: { auth: true },
+  },
+  {
+    path: "/carreras",
+    component: () => import("pages/CarrerasPage.vue"),
+    meta: { auth: true },
+  },
+  {
+    path: "/instituciones",
+    component: () => import("pages/InstitucionesPage.vue"),
     meta: { auth: true },
   },
 ];
