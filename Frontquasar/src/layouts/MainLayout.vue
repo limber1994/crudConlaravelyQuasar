@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="custom-header">
       <q-toolbar>
-        <q-toolbar-title> UNAP - TDS </q-toolbar-title>
+        <q-toolbar-title> INFO EDUCA-PUNO </q-toolbar-title>
         <q-btn flat @click="logout">Cerrar Sesión</q-btn>
       </q-toolbar>
     </q-header>

@@ -40,7 +40,7 @@ export default route(function (/* { store, ssrContext } */) {
     }
 
     if (!to.meta.auth && LocalStorage.has("user")) {
-      return next("/app");
+      return next("/app7");
     }
 
     return next();

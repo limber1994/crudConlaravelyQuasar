@@ -10,6 +10,7 @@ import { initializeApp } from "firebase/app";
 import FirebaseConfig from "src/firebase/firebaseConfig.js";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 export default defineComponent({
   name: "App",

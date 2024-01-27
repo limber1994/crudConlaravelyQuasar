@@ -16,18 +16,18 @@ const routes = [
     meta: { auth: false },
   },
   {
-    path: "/app",
+    path: "/app7",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {
-        path: "/app",
-        component: () => import("pages/ListaAlumnos.vue"),
+        path: "/app7",
+        component: () => import("pages/home.vue"),
         // Esta es tu página de inicio de sesión, manténla aquí
       },
       {
         path: "/lista-alumnos", // Cambia la ruta de ListaAlumnos.vue
         component: () => import("pages/ListaAlumnos.vue"),
-        // Cambia el path para evitar conflictos con la ruta de LoginPage.vue
+        //Cambia el path para evitar conflictos con la ruta de LoginPage.vue
       },
 
       {
@@ -48,50 +48,11 @@ const routes = [
     ],
     meta: { auth: true },
   },
-  {
-    path: "/app2",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [
-      {
-        path: "/app2",
-        component: () => import("pages/ListaTests.vue"),
-        // Esta es tu página de inicio de sesión, manténla aquí
-      },
-      {
-        path: "/lista-tests", // Cambia la ruta de ListaTests.vue
-        component: () => import("pages/ListaTests.vue"),
-        // Cambia el path para evitar conflictos con la ruta de LoginPage.vue
-      },
-      {
-        path: "/api/tests",
-        component: () => import("pages/TestsAPI.vue"),
-      },
-      {
-        path: "/agregar-test",
-        name: "AgregarTest",
-        component: () => import("components/FormularioAgregarTest.vue"),
-      },
-      {
-        path: "/editar-test/:id",
-        name: "editarTest",
-        component: () => import("components/editarTest.vue"),
-      },
-      {
-        path: "/agregar-universidad",
-        name: "AgregarUniversidad",
-        component: () => import("components/universidades.vue"),
-      },
-    ],
-    meta: { auth: true },
-  },
+
   {
     path: "/:catchAll(.*)*",
     component: () => import("pages/ErrorNotFound.vue"),
   },
-  {
-    path: "/tests",
-    component: () => import("pages/TestsPage.vue"),
-    meta: { auth: true },
-  },
 ];
+
 export default routes;
