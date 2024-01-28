@@ -20,6 +20,9 @@
             <div class="text-white q-my-sm text-subtitle1">
               ¡Inicie sesión en su cuenta para comenzar!
             </div>
+            <div class="text-white q-my-sm text-subtitle1">
+              <p class="logo">INFO EDUCA-PUNO</p>
+            </div>
           </div>
         </div>
       </div>
@@ -132,3 +135,9 @@ const handleFacebookLogin = async () => {
   }
 };
 </script>
+<style>
+.logo {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 40px;
+}
+</style>
