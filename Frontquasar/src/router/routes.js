@@ -20,47 +20,12 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {
-        path: "/app",
-        component: () => import("pages/ListaAlumnos.vue"),
-        // Esta es tu página de inicio de sesión, manténla aquí
-      },
-      {
-        path: "/lista-alumnos", // Cambia la ruta de ListaAlumnos.vue
-        component: () => import("pages/ListaAlumnos.vue"),
-        // Cambia el path para evitar conflictos con la ruta de LoginPage.vue
-      },
-
-      {
-        path: "/agregar-alumno",
-        name: "AgregarAlumno",
-        component: () => import("components/FormularioAgregarAlumno.vue"),
-      },
-      {
-        path: "/editar-alumno/:id",
-        name: "editarAlumno",
-        component: () => import("components/editarAlumno.vue"),
-      },
-      {
-        path: "/agregar-universidad",
-        name: "AgregarUniversidad",
-        component: () => import("components/universidades.vue"),
-      },
-    ],
-    meta: { auth: true },
-  },
-  {
-    path: "/usuarios",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [
-      {
         path: "/usuarios",
         component: () => import("pages/ListaUsuarios.vue"),
-        // Esta es tu página de inicio de sesión, manténla aquí
       },
       {
-        path: "/lista-usuarios", // Cambia la ruta de ListaUsuarios.vue
+        path: "/lista-usuarios",
         component: () => import("pages/ListaUsuarios.vue"),
-        // Cambia el path para evitar conflictos con la ruta de LoginPage.vue
       },
       {
         path: "/api/usuarios",
@@ -83,9 +48,32 @@ const routes = [
         component: () => import("components/editarUsuario.vue"),
       },
       {
-        path: "/agregar-universidad",
-        name: "AgregarUniversidad",
-        component: () => import("components/universidades.vue"),
+        path: "/tests",
+        component: () => import("pages/ListaTests.vue"),
+      },
+      {
+        path: "/lista-tests",
+        component: () => import("pages/ListaTests.vue"),
+      },
+      {
+        path: "/api/tests",
+        component: () => import("pages/TestsAPI.vue"),
+      },
+      {
+        path: "/agregar-test",
+        name: "AgregarTest",
+        component: () => import("components/FormularioAgregarTest.vue"),
+      },
+      {
+        path: "/reporteador-test",
+        name: "ReporteadorTest",
+        component: () => import("components/ReporteadorTest.vue"),
+        meta: { auth: true },
+      },
+      {
+        path: "/editar-test/:id",
+        name: "editarTest",
+        component: () => import("components/editarTest.vue"),
       },
     ],
     meta: { auth: true },
@@ -95,29 +83,15 @@ const routes = [
     component: () => import("pages/ErrorNotFound.vue"),
   },
   {
-    path: "/tests",
-    component: () => import("pages/TestsPage.vue"),
-    meta: { auth: true },
-  },
-  {
     path: "/usuarios",
     component: () => import("pages/UsuariosPage.vue"),
     meta: { auth: true },
   },
   {
-    path: "/etiquetas",
-    component: () => import("pages/EtiquetasPage.vue"),
-    meta: { auth: true },
-  },
-  {
-    path: "/carreras",
-    component: () => import("pages/CarrerasPage.vue"),
-    meta: { auth: true },
-  },
-  {
-    path: "/instituciones",
-    component: () => import("pages/InstitucionesPage.vue"),
+    path: "/tests",
+    component: () => import("pages/TestsPage.vue"),
     meta: { auth: true },
   },
 ];
+
 export default routes;

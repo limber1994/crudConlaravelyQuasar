@@ -12,3 +12,6 @@ dos cosas comunican quasar y laravel uno es el mideware Corse
  el otro es el comando fetch
 
  4. dist es importante con quasar build (no se si es importante)
+
+5. instalar esto para el reporteador en pdf
+composer require barryvdh/laravel-dompdf

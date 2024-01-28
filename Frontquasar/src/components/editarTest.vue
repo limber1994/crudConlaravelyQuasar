@@ -5,7 +5,7 @@
         <q-card-section class="col-7">
           <div class="q-pa-md">
             <h6 class="text-center bg-dark border border-success text-white">
-              Editar Alumno
+              Editar Test
             </h6>
             <q-form
               @submit.prevent="guardarCambios"
@@ -14,9 +14,9 @@
             >
               <q-input
                 filled
-                v-model="alumno.nombre"
-                label="Nombre *"
-                hint="Nombre y apellido"
+                v-model="test.nombre"
+                label="Nombre con el que saldrá su test*"
+                hint="Nombre *"
                 lazy-rules
                 :rules="[
                   (val) => (val && val.length > 0) || 'Por favor, ingresa algo',
@@ -25,31 +25,31 @@
 
               <q-input
                 filled
-                type="text"
-                v-model="alumno.correo"
-                label="Correo electrónico *"
-                hint="example@example.com"
+                v-model="test.uno"
+                label="Primera Área *"
                 lazy-rules
                 :rules="[
-                  (val) =>
-                    /.+@.+\..+/.test(val) ||
-                    'Por favor, ingresa un correo válido',
+                  (val) => (val && val.length > 0) || 'Por favor, ingresa algo',
                 ]"
               />
 
               <q-input
                 filled
-                type="number"
-                v-model="alumno.edad"
-                label="Edad *"
+                v-model="test.dos"
+                label="Segunda Área *"
                 lazy-rules
                 :rules="[
-                  (val) =>
-                    (val !== null && val !== '') ||
-                    'Por favor, ingresa tu edad',
-                  (val) =>
-                    (val > 0 && val < 100) ||
-                    'Por favor, ingresa una edad real',
+                  (val) => (val && val.length > 0) || 'Por favor, ingresa algo',
+                ]"
+              />
+
+              <q-input
+                filled
+                v-model="test.tres"
+                label="Tercera Área *"
+                lazy-rules
+                :rules="[
+                  (val) => (val && val.length > 0) || 'Por favor, ingresa algo',
                 ]"
               />
 
@@ -76,46 +76,47 @@
 export default {
   data() {
     return {
-      alumno: {
-        nombre: "",
-        correo: "",
-        edad: null,
+      test: {
+        nombre: null,
+        uno: null,
+        dos: null,
+        tres: null,
       },
     };
   },
   mounted() {
-    this.obtenerAlumno();
+    this.obtenerTest();
   },
   methods: {
-    async obtenerAlumno() {
+    async obtenerTest() {
       try {
         const id = this.$route.params.id;
-        const response = await fetch(`http://127.0.0.1:8000/alumnos/${id}`);
+        const response = await fetch(`http://127.0.0.1:8000/tests/${id}`);
         const data = await response.json();
-        this.alumno = data;
+        this.test = data;
       } catch (error) {
-        console.error("Error al obtener el alumno:", error);
+        console.error("Error al obtener el test:", error);
       }
     },
     async guardarCambios() {
       try {
         const id = this.$route.params.id;
         const response = await fetch(
-          `http://127.0.0.1:8000/alumnos/update/${id}`,
+          `http://127.0.0.1:8000/tests/update/${id}`,
           {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(this.alumno),
+            body: JSON.stringify(this.test),
           }
         );
 
         if (response.ok) {
-          console.log("Alumno actualizado correctamente");
-          this.$router.push("/");
+          console.log("Test actualizado correctamente");
+          this.$router.push("/tests");
         } else {
-          console.error("Error al actualizar el alumno");
+          console.error("Error al actualizar el test");
         }
       } catch (error) {
         console.error("Error al guardar los cambios:", error);
