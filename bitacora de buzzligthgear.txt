@@ -15,3 +15,6 @@ dos cosas comunican quasar y laravel uno es el mideware Corse
 
 5. instalar esto para el reporteador en pdf
 composer require barryvdh/laravel-dompdf
+
+6. AGREGAR CORS PARA EL PDF EN LARAVEL:
+barryvdh/laravel-cors

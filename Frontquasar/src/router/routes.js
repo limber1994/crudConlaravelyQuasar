@@ -29,29 +29,6 @@ const routes = [
         component: () => import("pages/ListaAlumnos.vue"),
         //Cambia el path para evitar conflictos con la ruta de LoginPage.vue
       },
-
-      {
-        path: "/agregar-alumno",
-        name: "AgregarAlumno",
-        component: () => import("components/FormularioAgregarAlumno.vue"),
-      },
-      {
-        path: "/editar-alumno/:id",
-        name: "editarAlumno",
-        component: () => import("components/editarAlumno.vue"),
-      },
-      {
-        path: "/agregar-universidad",
-        name: "AgregarUniversidad",
-        component: () => import("components/universidades.vue"),
-      },
-    ],
-    meta: { auth: true },
-  },
-  {
-    path: "/usuarios",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [
       {
         path: "/usuarios",
         component: () => import("pages/ListaUsuarios.vue"),

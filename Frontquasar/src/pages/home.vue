@@ -153,7 +153,10 @@
                 La mejor plataforma para buscar opciones para tu futuro
               </span>
             </h5>
-            <a class="boton-test" href="">
+            <a
+              class="boton-test"
+              href="https://www.elegircarrera.net/test-vocacional/"
+            >
               <q-btn
                 size="22px"
                 unelevated
