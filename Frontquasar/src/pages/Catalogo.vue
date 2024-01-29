@@ -1,7 +1,18 @@
-<!-- eslint-disable vue/multi-word-component-names -->
+<!-- eslint-disable-next-line vue/multi-word-component-names -->
 <template>
+  <br /><br />
+  <div class="search-container">
+    <!-- Ajusta los estilos según tus necesidades -->
+    <q-input
+      v-model="filtro"
+      label="Buscar"
+      outlined
+      dense
+      @input="aplicarFiltro"
+      class="search-input"
+    />
+  </div>
   <div class="q-pa-md row justify-center items-start q-gutter-md">
-    <!--Paginación_ se modifico -> institucion in instituciones-->
     <q-card
       v-for="institucion in paginatedInstituciones"
       :key="institucion.id"
@@ -10,8 +21,6 @@
       bordered
     >
       <q-card-section horizontal>
-        <!-- Agrega este console.log para verificar la URL de la imagen -->
-
         <q-img :src="institucion.foto" style="width: 300px; height: 200px">
           <div
             class="absolute-bottom text-h6"
@@ -47,7 +56,6 @@
     </q-card>
   </div>
 
-  <!--Paginación-->
   <div class="q-pa-lg flex flex-center">
     <q-pagination
       v-model="paginaActual"
@@ -66,20 +74,23 @@ export default {
   data() {
     return {
       instituciones: [],
-      //paginacion 2
-      itemsPorPagina: 6, // Número de items por página
+      itemsPorPagina: 6,
       paginaActual: 1,
+      filtro: "",
     };
   },
-  //paginacion 3
   computed: {
     totalPaginas() {
       return Math.ceil(this.instituciones.length / this.itemsPorPagina);
     },
     paginatedInstituciones() {
       const inicio = (this.paginaActual - 1) * this.itemsPorPagina;
-      const fin = inicio + this.itemsPorPagina; // Mostrar 1x3 tarjetas en cada página
-      return this.instituciones.slice(inicio, fin);
+      const fin = inicio + this.itemsPorPagina;
+      const institucionesFiltradas = this.instituciones.filter((inst) =>
+        inst.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+      );
+
+      return institucionesFiltradas.slice(inicio, fin);
     },
   },
   mounted() {
@@ -88,19 +99,21 @@ export default {
   methods: {
     async obtenerInstituciones() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/instituciones");
+        const response = await fetch(
+          `http://127.0.0.1:8000/instituciones?search=${this.filtro}`
+        );
         const data = await response.json();
-
-        console.log("Datos de instituciones obtenidos:", data);
-
         this.instituciones = data;
       } catch (error) {
-        console.error("Error al obtener los instituciones:", error);
+        console.error("Error al obtener las instituciones:", error);
       }
     },
-    //paginacion 4
     cambiarPagina(pagina) {
       this.paginaActual = pagina;
+    },
+    aplicarFiltro() {
+      this.paginaActual = 1;
+      this.obtenerInstituciones();
     },
   },
 };
@@ -108,8 +121,18 @@ export default {
 
 <style lang="scss">
 .custom-info-section {
-  line-height: 1; /* Puedes ajustar este valor según tus preferencias */
-  margin-bottom: 0; /* Elimina el margen inferior */
-  padding-bottom: 0; /* Elimina el espacio de relleno inferior */
+  line-height: 1;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.search-container {
+  text-align: center;
+  margin-bottom: 20px; /* Ajusta la separación entre el buscador y el contenido principal */
+  margin-left: 600px;
+}
+
+.search-input {
+  width: 300px; /* Ajusta el ancho del buscador según tus preferencias */
+  font-size: 16px; /* Ajusta el tamaño de la fuente del buscador según tus preferencias */
 }
 </style>
