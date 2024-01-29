@@ -25,11 +25,6 @@ const routes = [
         // Esta es tu página de inicio de sesión, manténla aquí
       },
       {
-        path: "/lista-alumnos", // Cambia la ruta de ListaAlumnos.vue
-        component: () => import("pages/ListaAlumnos.vue"),
-        //Cambia el path para evitar conflictos con la ruta de LoginPage.vue
-      },
-      {
         path: "/usuarios",
         component: () => import("pages/ListaUsuarios.vue"),
       },
@@ -85,6 +80,30 @@ const routes = [
         name: "editarTest",
         component: () => import("components/editarTest.vue"),
       },
+      {
+        path: "/instituciones",
+        component: () => import("pages/ListaInstituciones.vue"),
+        // Esta es tu página de inicio de sesión, manténla aquí
+      },
+      {
+        path: "/lista-instituciones", // Cambia la ruta de ListaInstituciones.vue
+        component: () => import("pages/ListaInstituciones.vue"),
+        // Cambia el path para evitar conflictos con la ruta de LoginPage.vue
+      },
+      {
+        path: "/agregar-institucion",
+        name: "AgregarInstitucion",
+        component: () => import("components/FormularioAgregarInstitucion.vue"),
+      },
+      {
+        path: "/editar-institucion/:id",
+        name: "editarInstitucion",
+        component: () => import("components/editarInstitucion.vue"),
+      },
+      {
+        path: "/catalogo",
+        component: () => import("pages/Catalogo.vue"),
+      },
     ],
     meta: { auth: true },
   },
@@ -100,6 +119,11 @@ const routes = [
   {
     path: "/tests",
     component: () => import("pages/TestsPage.vue"),
+    meta: { auth: true },
+  },
+  {
+    path: "/instituciones",
+    component: () => import("pages/InstitucionesPage.vue"),
     meta: { auth: true },
   },
 ];

@@ -79,14 +79,17 @@
           <a href="" class="text-white">
             <q-btn color="red" icon="home" label="Inicio" />
           </a>
-          <a href="lista-alumnos" class="text-white">
+          <a href="catalogo" class="text-white">
             <q-btn color="red" label="Catalogo" />
           </a>
-          <a href="javascript:void(0)" class="text-white">
-            <q-btn color="red" label="Carreras" />
+          <a href="tests" class="text-white">
+            <q-btn color="red" label="Test" />
           </a>
-          <a href="javascript:void(0)" class="text-white">
+          <a href="usuarios" class="text-white">
             <q-btn color="red" label="Usuarios" />
+          </a>
+          <a href="instituciones" class="text-white">
+            <q-btn color="red" label="Instituciones" />
           </a>
         </div>
 

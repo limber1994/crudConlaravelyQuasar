@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Cors
 {
-  
+
     public function handle($request, Closure $next)
             {
                 $response = $next($request);

@@ -16,7 +16,8 @@ class VerifyCsrfToken extends Middleware
         'usuarios/nuevo',
         'usuarios/pdf',
         'tests/nuevo',
-        'tests/pdf'
+        'tests/pdf',
+        'instituciones/nuevo'
     ];
-    
+
 }
