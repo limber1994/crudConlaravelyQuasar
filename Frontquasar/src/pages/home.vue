@@ -3,24 +3,13 @@
     <q-header
       elevated
       class="text-white"
-      style="background: #24292e"
+      style="background: #312d2d"
       height-hint="61.59"
     >
       <q-toolbar class="q-py-sm q-px-md">
         <div class="logo-container">
           <img src="src/assets/logolibro.png" />
         </div>
-        <q-btn
-          round
-          dense
-          flat
-          :ripple="false"
-          size="19px"
-          color="white"
-          class="q-mr-sm"
-          no-caps
-        />
-
         <q-select
           ref="search"
           dark
@@ -71,27 +60,6 @@
             </q-item>
           </template>
         </q-select>
-
-        <div
-          v-if="$q.screen.gt.sm"
-          class="GL__toolbar-link q-ml-xs q-gutter-md text-body2 text-weight-bold row items-center no-wrap"
-        >
-          <a href="" class="text-white">
-            <q-btn color="red" icon="home" label="Inicio" />
-          </a>
-          <a href="catalogo" class="text-white">
-            <q-btn color="red" label="Catalogo" />
-          </a>
-          <a href="tests" class="text-white">
-            <q-btn color="red" label="Test" />
-          </a>
-          <a href="usuarios" class="text-white">
-            <q-btn color="red" label="Usuarios" />
-          </a>
-          <a href="instituciones" class="text-white">
-            <q-btn color="red" label="Instituciones" />
-          </a>
-        </div>
 
         <q-space />
 
@@ -185,7 +153,7 @@
     <q-footer
       elevated
       class="text-white"
-      style="background: #715e5e"
+      style="background: #312d2d"
       height-hint="61.59"
     >
       <div class="row" id="pie">

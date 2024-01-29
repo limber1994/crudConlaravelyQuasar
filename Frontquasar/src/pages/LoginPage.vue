@@ -21,7 +21,7 @@
               ¡Inicie sesión en su cuenta para comenzar!
             </div>
             <div class="text-white q-my-sm text-subtitle1">
-              <p class="logo">INFO EDUCA-PUNO</p>
+              <p class="logo">Info Educa Puno</p>
             </div>
           </div>
         </div>

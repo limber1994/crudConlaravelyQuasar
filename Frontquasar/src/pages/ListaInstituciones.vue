@@ -8,6 +8,17 @@
         label="Agregar Institucion"
       />
     </div>
+    <div class="search-container q-pa-md text-center">
+      <q-input
+        style="width: 300px"
+        v-model="busqueda"
+        outlined
+        dense
+        @input="filtrarUsuarios"
+        placeholder="Buscar institucion"
+        class="custom-search-input"
+      />
+    </div>
     <div class="q-pa-md">
       <q-table
         class="my-sticky-virtscroll-table"
@@ -22,6 +33,8 @@
         :columns="columns"
         dark
         color="amber"
+        :filter="busqueda"
+        ref="table"
       >
         <template v-slot:body-cell-foto="props">
           <q-td :props="props">
@@ -163,6 +176,7 @@ export default {
       pagination: {
         rowsPerPage: 0,
       },
+      busqueda: "",
     };
   },
   mounted() {
@@ -229,11 +243,22 @@ export default {
 .my-sticky-virtscroll-table {
   height: 410px; /* Ajusta la altura según tus necesidades */
 }
+
 .custom-add-button {
   background-color: #312d2d;
   color: white; /* Cambia el color del texto si es necesario */
 }
+
 .text-center {
   text-align: center;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px; /* Ajusta la separación entre el buscador y el contenido principal */
+}
+
+.search-input {
+  font-size: 16px; /* Ajusta el tamaño de la fuente del buscador según tus preferencias */
 }
 </style>
