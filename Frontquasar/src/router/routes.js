@@ -111,21 +111,6 @@ const routes = [
     path: "/:catchAll(.*)*",
     component: () => import("pages/ErrorNotFound.vue"),
   },
-  {
-    path: "/usuarios",
-    component: () => import("pages/UsuariosPage.vue"),
-    meta: { auth: true },
-  },
-  {
-    path: "/tests",
-    component: () => import("pages/TestsPage.vue"),
-    meta: { auth: true },
-  },
-  {
-    path: "/instituciones",
-    component: () => import("pages/InstitucionesPage.vue"),
-    meta: { auth: true },
-  },
 ];
 
 export default routes;
