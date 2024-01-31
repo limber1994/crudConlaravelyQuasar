@@ -33,10 +33,6 @@ const routes = [
         component: () => import("pages/ListaUsuarios.vue"),
       },
       {
-        path: "/api/usuarios",
-        component: () => import("pages/UsuariosAPI.vue"),
-      },
-      {
         path: "/agregar-usuario",
         name: "AgregarUsuario",
         component: () => import("components/FormularioAgregarUsuario.vue"),
@@ -59,10 +55,6 @@ const routes = [
       {
         path: "/lista-tests",
         component: () => import("pages/ListaTests.vue"),
-      },
-      {
-        path: "/api/tests",
-        component: () => import("pages/TestsAPI.vue"),
       },
       {
         path: "/agregar-test",
