@@ -189,7 +189,7 @@ export default {
       try {
         const id = this.$route.params.id;
         const response = await fetch(
-          `http://127.0.0.1:8000/instituciones/${id}`
+          `http://143.198.50.189:8000/instituciones/${id}`
         );
         const data = await response.json();
         this.institucion = data;
@@ -201,7 +201,7 @@ export default {
       try {
         const id = this.$route.params.id;
         const response = await fetch(
-          `http://127.0.0.1:8000/instituciones/update/${id}`,
+          `http://143.198.50.189:8000/instituciones/update/${id}`,
           {
             method: "PUT",
             headers: {

@@ -185,7 +185,9 @@ export default {
   methods: {
     async obtenerInstituciones() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/instituciones");
+        const response = await fetch(
+          "http://143.198.50.189:8000/instituciones"
+        );
         const data = await response.json();
 
         console.log("Datos de instituciones obtenidos:", data); // Verifica los datos obtenidos en la consola
@@ -214,7 +216,7 @@ export default {
         );
         if (confirmacion) {
           const response = await fetch(
-            `http://127.0.0.1:8000/instituciones/eliminar/${id}`,
+            `http://143.198.50.189:8000/instituciones/eliminar/${id}`,
             {
               method: "DELETE",
             }

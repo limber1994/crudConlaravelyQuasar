@@ -114,7 +114,9 @@ export default {
     async obtenerUsuario() {
       try {
         const id = this.$route.params.id;
-        const response = await fetch(`http://127.0.0.1:8000/usuarios/${id}`);
+        const response = await fetch(
+          `http://143.198.50.189:8000/usuarios/${id}`
+        );
         const data = await response.json();
         this.usuario = data;
       } catch (error) {
@@ -125,7 +127,7 @@ export default {
       try {
         const id = this.$route.params.id;
         const response = await fetch(
-          `http://127.0.0.1:8000/usuarios/update/${id}`,
+          `http://143.198.50.189:8000/usuarios/update/${id}`,
           {
             method: "PUT",
             headers: {

@@ -141,7 +141,7 @@ export default {
   methods: {
     async obtenerUsuarios() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/usuarios");
+        const response = await fetch("http://143.198.50.189:8000/usuarios");
         const data = await response.json();
 
         console.log("Datos de usuarios obtenidos:", data);
@@ -163,7 +163,7 @@ export default {
     },
     async crearReporteador() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/usuarios/pdf");
+        const response = await fetch("http://143.198.50.189:8000/usuarios/pdf");
 
         if (response.ok) {
           // Manejar la respuesta exitosa, por ejemplo, abrir el PDF en una nueva pestaña
@@ -184,7 +184,7 @@ export default {
         const confirmacion = confirm("¿Estás seguro de eliminar este usuario?");
         if (confirmacion) {
           const response = await fetch(
-            `http://127.0.0.1:8000/usuarios/eliminar/${id}`,
+            `http://143.198.50.189:8000/usuarios/eliminar/${id}`,
             {
               method: "DELETE",
             }

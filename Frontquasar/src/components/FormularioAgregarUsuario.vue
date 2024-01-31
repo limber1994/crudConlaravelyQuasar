@@ -118,7 +118,7 @@ export default {
       // Lógica para enviar datos al backend (adaptar según tu backend en Laravel)
       console.log("Datos a enviar:", this.nuevoUsuario);
       try {
-        const response = await fetch("http://127.0.0.1:8000/usuarios/nuevo", {
+        const response = await fetch("http://143.198.50.189:8000/usuarios/nuevo", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

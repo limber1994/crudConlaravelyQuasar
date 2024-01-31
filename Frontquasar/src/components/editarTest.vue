@@ -91,7 +91,7 @@ export default {
     async obtenerTest() {
       try {
         const id = this.$route.params.id;
-        const response = await fetch(`http://127.0.0.1:8000/tests/${id}`);
+        const response = await fetch(`http://143.198.50.189:8000/tests/${id}`);
         const data = await response.json();
         this.test = data;
       } catch (error) {
@@ -102,7 +102,7 @@ export default {
       try {
         const id = this.$route.params.id;
         const response = await fetch(
-          `http://127.0.0.1:8000/tests/update/${id}`,
+          `http://143.198.50.189:8000/tests/update/${id}`,
           {
             method: "PUT",
             headers: {

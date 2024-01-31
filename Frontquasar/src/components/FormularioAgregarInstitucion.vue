@@ -196,7 +196,7 @@ export default {
       console.log("Datos a enviar:", this.nuevoInstitucion);
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/instituciones/nuevo",
+          "http://143.198.50.189:8000/instituciones/nuevo",
           {
             method: "POST",
             headers: {

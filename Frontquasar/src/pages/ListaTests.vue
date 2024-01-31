@@ -133,7 +133,7 @@ export default {
   methods: {
     async obtenerTests() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/tests");
+        const response = await fetch("http://143.198.50.189:8000/tests");
         const data = await response.json();
 
         console.log("Datos de tests obtenidos:", data);
@@ -155,7 +155,7 @@ export default {
     },
     async crearReporteador() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/tests/pdf");
+        const response = await fetch("http://143.198.50.189:8000/tests/pdf");
 
         if (response.ok) {
           // Manejar la respuesta exitosa, por ejemplo, abrir el PDF en una nueva pestaña
@@ -176,7 +176,7 @@ export default {
         const confirmacion = confirm("¿Estás seguro de eliminar este test?");
         if (confirmacion) {
           const response = await fetch(
-            `http://127.0.0.1:8000/tests/eliminar/${id}`,
+            `http://143.198.50.189:8000/tests/eliminar/${id}`,
             {
               method: "DELETE",
             }

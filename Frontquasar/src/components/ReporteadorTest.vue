@@ -14,7 +14,7 @@ export default {
   methods: {
     async generarReporte() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/tests/pdf");
+        const response = await fetch("http://143.198.50.189:8000/tests/pdf");
 
         if (response.ok) {
           const blob = await response.blob();

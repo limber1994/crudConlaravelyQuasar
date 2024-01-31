@@ -100,7 +100,7 @@ export default {
     async obtenerInstituciones() {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/instituciones?search=${this.filtro}`
+          `http://143.198.50.189:8000/instituciones?search=${this.filtro}`
         );
         const data = await response.json();
         this.instituciones = data;
