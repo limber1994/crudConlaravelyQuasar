@@ -117,11 +117,12 @@
             <h1>
               <span class="orange-text">Aplica</span>
               <span class="black-text"> nuestro Test</span>
-              <span class="orange-text"> Vocacional</span>
+              <span class="orange-text"> Vocacional </span>
             </h1>
             <h5>
               <span class="silver-text">
-                La mejor plataforma para buscar opciones para tu futuro
+                La mejor plataforma para buscar opciones para tu futuro y del
+                presente.
               </span>
             </h5>
             <a
